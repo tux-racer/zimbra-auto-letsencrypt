@@ -11,10 +11,12 @@
 # --------------------------------------------------------------------
 
 # common name in the certificate
-CN="mail.nordest.systems"
+PRINCIPAL="your.fqdn.here"
+ADDITIONAL="your.other.fqdn.here, even.other.here, some.more.dot.com" # respect commas!
+CN=$PRINCIPAL", "$ADDITIONAL
 
 # email for letsencrypt communications
-letsencrypt_email="webmaster@nordest.systems"
+letsencrypt_email="your_letsencrypt_notifications@example.com"
 
 # zimbra-letsencrypt folder
 letsencrypt_zimbra_dir="/root/zimbra-auto-letsencrypt"
@@ -26,7 +28,7 @@ letsencrypt_zimbra_dir="/root/zimbra-auto-letsencrypt"
 # letsencrypt tool
 letsencrypt="/usr/bin/certbot"
 # letsencrypt live directory
-letsencrypt_live_dir="/etc/letsencrypt/live/${CN}"
+letsencrypt_live_dir="/etc/letsencrypt/live/${PRINCIPAL}"
 # generated cert
 letsencrypt_issued_cert_file="${letsencrypt_live_dir}/cert.pem"
 # generated chain
