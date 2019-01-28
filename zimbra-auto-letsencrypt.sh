@@ -215,7 +215,7 @@ readable_file "$root_CA_file" || {
 if [ "$renew_cert" == "no" ]; then
     
     # generate a new certificate
-    "$letsencrypt" certonly --standalone --agree-tos --text --email "$letsencrypt_email" -d "$CN"  || {
+    "$letsencrypt" certonly --standalone --preferred-challenge http-01 --agree-tos --text --email "$letsencrypt_email" -d "$CN"  || {
         error "The certificate cannot be obtained with '$letsencrypt' tool."
         start_nginx
         exit 4
@@ -223,8 +223,15 @@ if [ "$renew_cert" == "no" ]; then
    
 else
 
+    # fix preferred challenge if not ok yet
+    if [ -z "$(grep 'pref_challs' /etc/letsencrypt/renewal/${PRINCIPAL}.conf )" ];
+        echo "pref_challs = http-01" >> /etc/letsencrypt/renewal/${PRINCIPAL}.conf
+    else
+        sed -i 's/^pref_challs.*/pref_challs = http-01/' /etc/letsencrypt/renewal/${PRINCIPAL}.conf
+    fi
+	
     # renew the certificate
-    "$letsencrypt" renew --renew-by-default
+    "$letsencrypt" renew --renew-by-default 
 
 fi
 
