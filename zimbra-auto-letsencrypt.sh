@@ -224,7 +224,7 @@ if [ "$renew_cert" == "no" ]; then
 else
 
     # fix preferred challenge if not ok yet
-    if [ -z "$(grep 'pref_challs' /etc/letsencrypt/renewal/${PRINCIPAL}.conf )" ];
+    if [ -z "$(grep 'pref_challs' /etc/letsencrypt/renewal/${PRINCIPAL}.conf )" ]; then
         echo "pref_challs = http-01" >> /etc/letsencrypt/renewal/${PRINCIPAL}.conf
     else
         sed -i 's/^pref_challs.*/pref_challs = http-01/' /etc/letsencrypt/renewal/${PRINCIPAL}.conf
