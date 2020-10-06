@@ -6,6 +6,9 @@
 # fork author: Lorenzo Faleschini <lorenzo@nordest.systems>
 # https://github.com/penzoiders/letsencrypt-zimbra
 
+# fork author: tux-racer 
+# https://github.com/tux-racer/zimbra-auto-letsencrypt
+
 SCRIPTNAME=${0##*/}
 
 USAGE="USAGE
@@ -208,35 +211,21 @@ readable_file "$root_CA_file" || {
 # -- Obtaining the certificate ---------------------------------------
 # --------------------------------------------------------------------
 
-# release the 443 port -- stop Zimbra' nginx
-    stop_nginx
-
-
 if [ "$renew_cert" == "no" ]; then
     
     # generate a new certificate
-    "$letsencrypt" certonly --standalone --preferred-challenge http-01 --agree-tos --text --email "$letsencrypt_email" -d "$CN"  || {
+    "$letsencrypt" certonly --standalone --preferred-challenge dns --agree-tos --text --expand --manual-public-ip-logging-ok --email "$letsencrypt_email" -d "$CN"  || {
         error "The certificate cannot be obtained with '$letsencrypt' tool."
         start_nginx
         exit 4
     }
    
 else
-
-    # fix preferred challenge if not ok yet
-    if [ -z "$(grep 'pref_challs' /etc/letsencrypt/renewal/${PRINCIPAL}.conf )" ]; then
-        echo "pref_challs = http-01" >> /etc/letsencrypt/renewal/${PRINCIPAL}.conf
-    else
-        sed -i 's/^pref_challs.*/pref_challs = http-01/' /etc/letsencrypt/renewal/${PRINCIPAL}.conf
-    fi
-	
+    
     # renew the certificate
     "$letsencrypt" renew --renew-by-default 
 
 fi
-
-# start Zimbra' nginx again
-start_nginx
 
 # --------------------------------------------------------------------
 # -- Deploying the certificate ---------------------------------------
