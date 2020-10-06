@@ -13,8 +13,8 @@
 # -- Mandatory Variables ---------------------------------------------
 # --------------------------------------------------------------------
 
-# common name in the certificate / wildcard
-CN="*.example.com"
+# common name in the certificate / wildcard CN="*.example.com"
+CN="mail.example.com"
 
 # email for letsencrypt communications
 letsencrypt_email="your_letsencrypt_notifications@example.com"
