@@ -7,6 +7,7 @@ You will probably find these files useful when you want to move your self-signed
  - Clone this repo in your root folder (or wherever you want): `git clone https://github.com/penzoiders/zimbra-auto-letsencrypt.git`
  - Set your variables by editing `letsencrypt-zimbra.conf` file
  - cd to the script folder and run `./zimbra-auto-letsencrypt.sh`, sit back and relax while your server gets a fresh certificate and deploys (zimbra services will be restarted)
+ - Add deployed TXT dns record, "Please deploy a DNS TXT record under the name _acme-challenge.mail.example.com with the following value: 667drNmQL3vX6bu8YZlgy0wKNBlCny8yrjF1lSaUndc,   Once this is deployed,   Press ENTER to continue" 
  - run `./zimbra-auto-letsencrypt.sh --help` for help and for a copy-paste-friendly hint to automate renewals using crontab
  - Enjoy **open-source** and **encryption**!
 
