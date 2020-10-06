@@ -6,14 +6,15 @@
 # fork author: Lorenzo Faleschini <lorenzo@nordest.systems>
 # https://github.com/penzoiders/letsencrypt-zimbra
 
+# fork author: tux-racer 
+# https://github.com/tux-racer/zimbra-auto-letsencrypt
+
 # --------------------------------------------------------------------
 # -- Mandatory Variables ---------------------------------------------
 # --------------------------------------------------------------------
 
-# common name in the certificate
-PRINCIPAL="your.fqdn.here"
-ADDITIONAL="your.other.fqdn.here, even.other.here, some.more.dot.com" # respect commas!
-CN=$PRINCIPAL", "$ADDITIONAL
+# common name in the certificate / wildcard
+CN="*.example.com"
 
 # email for letsencrypt communications
 letsencrypt_email="your_letsencrypt_notifications@example.com"
@@ -28,7 +29,7 @@ letsencrypt_zimbra_dir="/root/zimbra-auto-letsencrypt"
 # letsencrypt tool
 letsencrypt="/usr/bin/certbot"
 # letsencrypt live directory
-letsencrypt_live_dir="/etc/letsencrypt/live/${PRINCIPAL}"
+letsencrypt_live_dir="/etc/letsencrypt/live/${CN}"
 # generated cert
 letsencrypt_issued_cert_file="${letsencrypt_live_dir}/cert.pem"
 # generated chain
