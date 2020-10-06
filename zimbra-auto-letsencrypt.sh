@@ -214,9 +214,8 @@ readable_file "$root_CA_file" || {
 if [ "$renew_cert" == "no" ]; then
     
     # generate a new certificate
-    "$letsencrypt" certonly --standalone --preferred-challenge dns --agree-tos --text --expand --manual-public-ip-logging-ok --email "$letsencrypt_email" -d "$CN"  || {
+    "$letsencrypt" certonly --manual --preferred-challenge dns --agree-tos --text --expand --manual-public-ip-logging-ok --email "$letsencrypt_email" -d "$CN"  || {
         error "The certificate cannot be obtained with '$letsencrypt' tool."
-        start_nginx
         exit 4
     }
    
