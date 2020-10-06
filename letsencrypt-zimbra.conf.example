@@ -13,8 +13,15 @@
 # -- Mandatory Variables ---------------------------------------------
 # --------------------------------------------------------------------
 
-# common name in the certificate / wildcard CN="*.example.com"
-CN="mail.example.com"
+# common name in the certificate / wildcard
+# sample for full fqdn CN="mail.example.com"
+# sample for wildcard CN="*.example.com"
+CN="*.example.com"
+
+# Domain / fqdn
+# sample for full fqdn CN="mail.example.com"
+# sample for wildcard CN=example.com"
+PRINCIPAL="example.com"
 
 # email for letsencrypt communications
 letsencrypt_email="your_letsencrypt_notifications@example.com"
@@ -29,7 +36,7 @@ letsencrypt_zimbra_dir="/root/zimbra-auto-letsencrypt"
 # letsencrypt tool
 letsencrypt="/usr/bin/certbot"
 # letsencrypt live directory
-letsencrypt_live_dir="/etc/letsencrypt/live/${CN}"
+letsencrypt_live_dir="/etc/letsencrypt/live/${PRINCIPAL}"
 # generated cert
 letsencrypt_issued_cert_file="${letsencrypt_live_dir}/cert.pem"
 # generated chain
