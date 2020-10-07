@@ -137,32 +137,6 @@ executable_file() {
     [ -f "$1" -a -x "$1" ]
 }
 
-# just a kindly message how to fix stopped nginx
-fix_nginx_message() {
-    echo "        You must probably fix it with:
-        'su -c 'zmproxyctl start; zmmailboxdctl start' - $zimbra_user'
-        command or something." >&2
-}
-
-# this function will stop Zimbra's nginx
-stop_nginx() {
-    su -c 'zmproxyctl stop; zmmailboxdctl stop' - "$zimbra_user" || {
-        error "There were some error during stopping the Zimbra' nginx."
-        fix_nginx_message
-        exit 3
-    }
-}
-
-# and another one to start it
-start_nginx() {
-    su -c 'zmproxyctl start; zmmailboxdctl start' - "$zimbra_user" || {
-        error "There were some error during starting the Zimbra' nginx."
-        fix_nginx_message
-        exit 3
-    }
-}
-
-
 # --------------------------------------------------------------------
 # -- Tests -----------------------------------------------------------
 # --------------------------------------------------------------------
