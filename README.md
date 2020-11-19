@@ -25,6 +25,8 @@ NOTE: Tested on Zimbra 8.7 and CentOS 7 host (will not work for Zimbra < 8.7 sin
   
   `yum install certbot`
   
+  `yum install -y python2-cloudflare python2-certbot-dns-cloudflare`
+  
   - install CertBot on CentOS 6:
   
   setup python 2.7 repo
@@ -48,6 +50,7 @@ NOTE: Tested on Zimbra 8.7 and CentOS 7 host (will not work for Zimbra < 8.7 sin
   - https://wiki.zimbra.com/wiki/Installing_a_LetsEncrypt_SSL_Certificate/
   - https://github.com/letsencrypt/letsencrypt
   - https://certbot.eff.org
+  - https://www.digitalocean.com/community/tutorials/how-to-retrieve-let-s-encrypt-ssl-wildcard-certificates-using-cloudflare-validation-on-centos-7
 
 ## Credits:
   - Vojtěch Myslivec: letsencrypt-zimbra https://github.com/VojtechMyslivec/letsencrypt-zimbra
