@@ -1,4 +1,4 @@
-# Zimbra automated Let's Encrypt certificate generation, deployment and renewal
+# Zimbra automated Let's Encrypt certificate generation, deployment and renewal with certbot dns cloudflare api plugin
 Files to automate the deploy of letsencrypt certificates to Zimbra
 
 You will probably find these files useful when you want to move your self-signed Zimbra certificate to the [letsencrypt](https://letsencrypt.org/) valid one and automate the renewal of the certificate.
