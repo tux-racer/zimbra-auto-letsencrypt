@@ -25,26 +25,7 @@ NOTE: Tested on Zimbra 8.7 and CentOS 7 host (will not work for Zimbra < 8.7 sin
   
   `yum install certbot`
   
-  `yum install -y python2-cloudflare python2-certbot-dns-cloudflare`
-  
-  - install CertBot on CentOS 6:
-  
-  setup python 2.7 repo
-  
-  `yum install -y https://centos6.iuscommunity.org/ius-release.rpm`
-  
-  `rpm --import /etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY`
-  
-  `yum -y install python27 python27-devel python27-pip python27-setuptools python27-virtualenv --enablerepo=ius`
-  
-  download and install Certbot and other prerequisites
-  
-  `yum -y install git dialog libffi-devel mod_ssl openssl-devel python-devel python-pip python-tools python-virtualenv`
-  
-  `wget https://dl.eff.org/certbot-auto -O /usr/bin/certbot`
-  
-  `chmod+x /usr/bin/certbot`
-    
+  `yum install -y python2-cloudflare python2-certbot-dns-cloudflare`   
 
 ## References: 
   - https://wiki.zimbra.com/wiki/Installing_a_LetsEncrypt_SSL_Certificate/
