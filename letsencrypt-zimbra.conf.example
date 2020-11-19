@@ -29,6 +29,9 @@ letsencrypt_email="your_letsencrypt_notifications@example.com"
 # zimbra-letsencrypt folder
 letsencrypt_zimbra_dir="/root/zimbra-auto-letsencrypt"
 
+# dns-cloudflare-credentials folder
+credentials_file="${letsencrypt_zimbra_dir}/cloudflare.conf"
+
 # --------------------------------------------------------------------
 # -- Variables that usually are ok like this -------------------------
 # --------------------------------------------------------------------

@@ -1,4 +1,4 @@
-# Zimbra automated Let's Encrypt certificate generation, deployment and renewal
+# Zimbra automated Let's Encrypt certificate generation, deployment and renewal with certbot dns cloudflare api plugin
 Files to automate the deploy of letsencrypt certificates to Zimbra
 
 You will probably find these files useful when you want to move your self-signed Zimbra certificate to the [letsencrypt](https://letsencrypt.org/) valid one and automate the renewal of the certificate.
@@ -7,7 +7,7 @@ You will probably find these files useful when you want to move your self-signed
  - Clone this repo in your root folder (or wherever you want): `git clone https://github.com/penzoiders/zimbra-auto-letsencrypt.git`
  - Set your variables by editing `letsencrypt-zimbra.conf` file
  - cd to the script folder and run `./zimbra-auto-letsencrypt.sh`, sit back and relax while your server gets a fresh certificate and deploys (zimbra services will be restarted)
- - Add deployed TXT dns record, "Please deploy a DNS TXT record under the name _acme-challenge.mail.example.com with the following value: 667drNmQL3vX6bu8YZlgy0wKNBlCny8yrjF1lSaUndc,   Once this is deployed,   Press ENTER to continue" 
+ - Open cloudflare dashboard get api key and place on cloudflare.conf
  - run `./zimbra-auto-letsencrypt.sh --help` for help and for a copy-paste-friendly hint to automate renewals using crontab
  - Enjoy **open-source** and **encryption**!
 
@@ -24,6 +24,8 @@ NOTE: Tested on Zimbra 8.7 and CentOS 7 host (will not work for Zimbra < 8.7 sin
   `yum install git epel-release`
   
   `yum install certbot`
+  
+  `yum install -y python2-cloudflare python2-certbot-dns-cloudflare`
   
   - install CertBot on CentOS 6:
   
@@ -48,6 +50,7 @@ NOTE: Tested on Zimbra 8.7 and CentOS 7 host (will not work for Zimbra < 8.7 sin
   - https://wiki.zimbra.com/wiki/Installing_a_LetsEncrypt_SSL_Certificate/
   - https://github.com/letsencrypt/letsencrypt
   - https://certbot.eff.org
+  - https://www.digitalocean.com/community/tutorials/how-to-retrieve-let-s-encrypt-ssl-wildcard-certificates-using-cloudflare-validation-on-centos-7
 
 ## Credits:
   - Vojtěch Myslivec: letsencrypt-zimbra https://github.com/VojtechMyslivec/letsencrypt-zimbra
