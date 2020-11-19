@@ -54,3 +54,5 @@ NOTE: Tested on Zimbra 8.7 and CentOS 7 host (will not work for Zimbra < 8.7 sin
 
 ## Credits:
   - Vojtěch Myslivec: letsencrypt-zimbra https://github.com/VojtechMyslivec/letsencrypt-zimbra
+  - Lorenzo Faleschini: letsencrypt-zimbra https://github.com/penzoiders/zimbra-auto-letsencrypt
+
