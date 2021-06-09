@@ -4,7 +4,7 @@ Files to automate the deploy of letsencrypt certificates to Zimbra
 You will probably find these files useful when you want to move your self-signed Zimbra certificate to the [letsencrypt](https://letsencrypt.org/) valid one and automate the renewal of the certificate.
 
  - You'll need to have Certbot isntalled on your system (needs EPEL): `yum -y install certbot`
- - Clone this repo in your root folder (or wherever you want): `git clone https://github.com/penzoiders/zimbra-auto-letsencrypt.git`
+ - Clone this repo in your root folder (or wherever you want): `git clone https://github.com/tux-racer/zimbra-auto-letsencrypt.git`
  - Set your variables by editing `letsencrypt-zimbra.conf` file
  - cd to the script folder and run `./zimbra-auto-letsencrypt.sh`, sit back and relax while your server gets a fresh certificate and deploys (zimbra services will be restarted)
  - Open cloudflare dashboard get api key and place on cloudflare.conf
